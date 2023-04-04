@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -113,6 +115,9 @@
                                             <connections>
                                                 <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
                                             </connections>
+                                        </menuItem>
+                                        <menuItem title="Item" id="Cgd-ne-8xm">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -673,11 +678,74 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SolarCalculator_Swift" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="344" y="460"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pe8-51-EIK">
+            <objects>
+                <viewController id="XlI-nR-dSE" sceneMemberID="viewController">
+                    <view key="view" id="1DA-CE-yU2">
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="588"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7B-8e-DuB">
+                                <rect key="frame" x="256" y="523" width="158" height="38"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="center" title="TheSolarCalculator" bezelStyle="round" id="ma2-FK-7W5">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBj-Ul-gPd">
+                                <rect key="frame" x="276" y="477" width="118" height="38"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="center" title="Documentation" bezelStyle="round" id="GUd-wO-eWd">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ho-zv-pmB">
+                                <rect key="frame" x="61" y="333" width="549" height="136"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" id="XqF-7f-eGk">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">This is the macOS version of TheSolarCalculator. Due to time and technical limitations, this app is very limited compared to it's main form. You can visit http://thesolarcalculator.org to use the full version. This version is written in Swift 4 using the Cocoa framework within Xcode 10. Unfortunately, these versions of Swift and Xcode cannot support the AWS SDK so this app cannot call on the AWS Lambda function, DynamoDB, and S3 buckets that support this app. For now, this version just has a simplified UI similar to the main UI which could call on AWS SDK if development continues on a more modern Mac.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01v-Um-f2e">
+                                <rect key="frame" x="61" y="27" width="549" height="153"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" id="ky2-Km-NSV">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">The full version of the app takes the users input and calls on the National Renewable Energy Laboratory's API for solar irridescnce data. Then, this app calculates different insights about the input data and irridescence data at the user's address including the amount they could have saved each month in both energy and cost. The app also generates graphs showing the cost and energy savings over time to help visualize the results. Adapting this backend to a macOS or iOS app would be relatively straightforward. If you look in ViewController.calculateResults() you will see I have included code that could call on the main Lambda function. From there the results would just need to be parsed into an view.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSF-ar-Uv7">
+                                <rect key="frame" x="61" y="194" width="549" height="119"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" id="O4Q-gl-pi7">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">While I wish this could be a complete version of this app as a proof of concept, my current Mac cannot support what it needs. However, I wanted to take a little time to put an effort towards familiarizing myself with Swift and Xcode. I also have taken time to enable Hardened Runtime for this app and read up on it's capabilities. I have no doubts that if given an opportunity or brought onto the GoPro team I would apply my drive for growth and integrate into the team well and prove to be a valuable team member. Thank you for taking a little time to review this simple project.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="myR-cM-h25" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="1603"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -686,7 +754,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="182" y="240" width="494" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -698,20 +766,265 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="68" y="250"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SolarCalculator_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="639"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afc-yc-msa">
+                                <rect key="frame" x="265" y="583" width="141" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="center" title="TheSolarCalculator" bezelStyle="round" id="eTw-kQ-Xas">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="shadowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-Ez-YFY">
+                                <rect key="frame" x="286" y="428" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Address..." bezelStyle="round" id="u9F-h8-7EF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-we-MtQ">
+                                <rect key="frame" x="286" y="458" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Name..." bezelStyle="round" id="smm-eQ-hti">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBp-Iz-5mH">
+                                <rect key="frame" x="260" y="360" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="kWh" bezelStyle="round" id="VHe-f6-Isj">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="4NJ-kw-Jpu"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKO-Gl-Vdx">
+                                <rect key="frame" x="377" y="360" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="$" bezelStyle="round" id="wRJ-RV-dZc">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="5st-Qn-iM8"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2vH-Qi-4Jc">
+                                <rect key="frame" x="260" y="332" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="kWh" bezelStyle="round" id="1dm-p5-WXs">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="HnJ-bl-RUw"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-sC-SPC">
+                                <rect key="frame" x="377" y="332" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="$" bezelStyle="round" id="OrW-Cu-gHh">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="C81-cx-cI8"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-p1-cs7">
+                                <rect key="frame" x="260" y="304" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="kWh" bezelStyle="round" id="1gc-Ep-ReE">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="xrO-if-YOL"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-ku-AWf">
+                                <rect key="frame" x="377" y="304" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="$" bezelStyle="round" id="ra9-PO-Jvb">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="lBq-cK-SLO"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-PS-kJ6">
+                                <rect key="frame" x="264" y="179" width="141" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="center" title="Results" bezelStyle="round" id="kTj-eo-qqj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="shadowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFz-a1-edY">
+                                <rect key="frame" x="90" y="74" width="491" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Cost Array Goes Here" bezelStyle="round" id="Id7-kz-Klj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="frb-4e-AhN"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ila-zp-PQW">
+                                <rect key="frame" x="90" y="104" width="489" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Energy Array Goes Here" bezelStyle="round" id="wMy-bi-oXl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="Jx7-io-D6x"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZA-JY-eLh">
+                                <rect key="frame" x="90" y="142" width="489" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Name and Address Go Here" bezelStyle="round" id="YTF-D1-Mmg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="DBy-Jy-Ifb"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdV-dQ-V2o">
+                                <rect key="frame" x="198" y="304" width="54" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Mar" bezelStyle="round" id="xgw-Nx-tID">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="KTc-vX-xwC"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YbO-Cc-Sf1">
+                                <rect key="frame" x="198" y="332" width="54" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Feb" bezelStyle="round" id="wm7-t8-WnJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="Sq7-Ps-9dU"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WvF-eL-6Gk">
+                                <rect key="frame" x="388" y="390" width="75" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Cost" bezelStyle="round" id="FPI-P3-jSR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="yrD-f3-iOj"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bO-qF-ZOk">
+                                <rect key="frame" x="267" y="390" width="82" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Energy" bezelStyle="round" id="o8h-jE-Je2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="etL-Ke-z6G"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Sq-HI-7XE">
+                                <rect key="frame" x="198" y="360" width="54" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" alignment="center" title="Jan" bezelStyle="round" id="cf7-Pk-VG6">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="displayEnergy:" target="XfG-lQ-9wD" id="47U-Ok-SlB"/>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiJ-hi-ES8">
+                                <rect key="frame" x="136" y="494" width="398" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="border" alignment="center" drawsBackground="YES" id="hzy-mu-XbJ">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">Using The Solar Calculator is simple! All you need is your energy consumption &amp; cost over the past year (3 months). Once you have this, enter your address  and consumption info into the section below and hit the Run Tool button.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-tr-VpA">
+                                <rect key="frame" x="256" y="13" width="159" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="See Documentation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VmE-w5-q8Y">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="XlI-nR-dSE" kind="popover" popoverAnchorView="N3Y-tr-VpA" popoverBehavior="t" preferredEdge="maxY" id="ijk-85-dZF"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ptP-hz-R2A">
+                                <rect key="frame" x="288" y="247" width="93" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <buttonCell key="cell" type="push" title="Run Tool" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6MU-eM-O1K">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="displayResults:" target="XfG-lQ-9wD" id="yBO-8b-7P9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="buttonRunTool" destination="ptP-hz-R2A" id="1wg-U0-o2B"/>
+                        <outlet property="labelCost" destination="WvF-eL-6Gk" id="RoZ-Dt-kjV"/>
+                        <outlet property="labelCostArray" destination="HFz-a1-edY" id="1rM-La-O2z"/>
+                        <outlet property="labelEnergy" destination="6bO-qF-ZOk" id="K24-AA-87M"/>
+                        <outlet property="labelEnergyArray" destination="Ila-zp-PQW" id="KaM-1f-ebP"/>
+                        <outlet property="labelResults" destination="aZA-JY-eLh" id="kz3-WT-h8O"/>
+                        <outlet property="labelTitle" destination="afc-yc-msa" id="lu1-sE-beN"/>
+                        <outlet property="numFebCost" destination="Qo3-sC-SPC" id="5sP-w4-EhA"/>
+                        <outlet property="numFebEnergy" destination="2vH-Qi-4Jc" id="Xko-0G-AJg"/>
+                        <outlet property="numJanCost" destination="aKO-Gl-Vdx" id="MDv-s0-qlK"/>
+                        <outlet property="numJanEnergy" destination="fBp-Iz-5mH" id="Nkm-B7-CFV"/>
+                        <outlet property="numMarCost" destination="OG8-ku-AWf" id="hTT-ZK-2Kr"/>
+                        <outlet property="numMarEnergy" destination="rfL-p1-cs7" id="xfT-y5-qtf"/>
+                        <outlet property="textAddress" destination="dJl-Ez-YFY" id="MPb-in-35A"/>
+                        <outlet property="textName" destination="oGf-we-MtQ" id="2LK-Cg-Vcl"/>
+                        <outlet property="viewHome" destination="m2S-Jp-Qdl" id="Ftk-bi-1mX"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-160" y="852.5"/>
         </scene>
     </scenes>
 </document>

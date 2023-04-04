@@ -11,8 +11,6 @@
 		2B54C00E29DB5E1500086C0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B54C00D29DB5E1500086C0F /* ViewController.swift */; };
 		2B54C01029DB5E1E00086C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B54C00F29DB5E1E00086C0F /* Assets.xcassets */; };
 		2B54C01329DB5E1E00086C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B54C01129DB5E1E00086C0F /* Main.storyboard */; };
-		2B54C01F29DB5E1E00086C0F /* SolarCalculator_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B54C01E29DB5E1E00086C0F /* SolarCalculator_SwiftTests.swift */; };
-		2B54C02A29DB5E1E00086C0F /* SolarCalculator_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B54C02929DB5E1E00086C0F /* SolarCalculator_SwiftUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +39,7 @@
 		2B54C01429DB5E1E00086C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B54C01529DB5E1E00086C0F /* SolarCalculator_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SolarCalculator_Swift.entitlements; sourceTree = "<group>"; };
 		2B54C01A29DB5E1E00086C0F /* SolarCalculator-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SolarCalculator-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B54C01E29DB5E1E00086C0F /* SolarCalculator_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarCalculator_SwiftTests.swift; sourceTree = "<group>"; };
-		2B54C02029DB5E1E00086C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B54C02529DB5E1E00086C0F /* SolarCalculator-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SolarCalculator-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B54C02929DB5E1E00086C0F /* SolarCalculator_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarCalculator_SwiftUITests.swift; sourceTree = "<group>"; };
-		2B54C02B29DB5E1E00086C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				2B54C00A29DB5E1500086C0F /* SolarCalculator-Swift */,
-				2B54C01D29DB5E1E00086C0F /* SolarCalculator-SwiftTests */,
-				2B54C02829DB5E1E00086C0F /* SolarCalculator-SwiftUITests */,
 				2B54C00929DB5E1500086C0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,24 +96,6 @@
 				2B54C01529DB5E1E00086C0F /* SolarCalculator_Swift.entitlements */,
 			);
 			path = "SolarCalculator-Swift";
-			sourceTree = "<group>";
-		};
-		2B54C01D29DB5E1E00086C0F /* SolarCalculator-SwiftTests */ = {
-			isa = PBXGroup;
-			children = (
-				2B54C01E29DB5E1E00086C0F /* SolarCalculator_SwiftTests.swift */,
-				2B54C02029DB5E1E00086C0F /* Info.plist */,
-			);
-			path = "SolarCalculator-SwiftTests";
-			sourceTree = "<group>";
-		};
-		2B54C02829DB5E1E00086C0F /* SolarCalculator-SwiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2B54C02929DB5E1E00086C0F /* SolarCalculator_SwiftUITests.swift */,
-				2B54C02B29DB5E1E00086C0F /* Info.plist */,
-			);
-			path = "SolarCalculator-SwiftUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +166,11 @@
 				TargetAttributes = {
 					2B54C00729DB5E1500086C0F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+						};
 					};
 					2B54C01929DB5E1E00086C0F = {
 						CreatedOnToolsVersion = 10.1;
@@ -263,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B54C01F29DB5E1E00086C0F /* SolarCalculator_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B54C02A29DB5E1E00086C0F /* SolarCalculator_SwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +399,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SolarCalculator-Swift/SolarCalculator_Swift.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SBK6KTCCUH;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SolarCalculator-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,8 +420,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SolarCalculator-Swift/SolarCalculator_Swift.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SBK6KTCCUH;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SolarCalculator-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
